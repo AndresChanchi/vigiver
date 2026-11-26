@@ -6,17 +6,9 @@ import {
     IQorePqcVerifyPrecompile
 } from "../../../../src/cryptography/qorechain/interfaces/IQorePqcVerifyPrecompile.sol";
 import {QorePqcVerifier} from "../../../../src/cryptography/qorechain/QorePqcVerifier.sol";
-
-/// @dev Exposes the internal library through an external call boundary.
-contract QorePqcVerifierHarness {
-    function verify(bytes calldata publicKey, bytes calldata signature, bytes calldata message)
-        external
-        view
-        returns (bool)
-    {
-        return QorePqcVerifier.verify(publicKey, signature, message);
-    }
-}
+import {
+    QorePqcVerifierHarness
+} from "../../../helpers/cryptography/qorechain/QorePqcVerifierHarness.sol";
 
 contract QorePqcVerifierTest is Test {
     /*//////////////////////////////////////////////////////////////
