@@ -2,6 +2,9 @@
 pragma solidity 0.8.39;
 
 import {Test} from "forge-std/Test.sol";
+import {
+    IQorePqcVerifyPrecompile
+} from "../../../../src/cryptography/qorechain/interfaces/IQorePqcVerifyPrecompile.sol";
 import {QorePqcVerifier} from "../../../../src/cryptography/qorechain/QorePqcVerifier.sol";
 
 /// @dev Exposes the internal library through an external call boundary.
@@ -176,16 +179,7 @@ contract QorePqcVerifierTest is Test {
 
     function _mockUnexpectedPrecompileCall() internal {
         vm.mockCallRevert(
-            PQC_PRECOMPILE,
-            abi.encodeWithSignature("pqcVerify(bytes,bytes,bytes)", "", "", ""),
-            hex""
-        );
-
-        // Match the selector regardless of the supplied arguments.
-        vm.mockCallRevert(
-            PQC_PRECOMPILE,
-            abi.encodePacked(bytes4(keccak256("pqcVerify(bytes,bytes,bytes)"))),
-            hex""
+            PQC_PRECOMPILE, abi.encodePacked(IQorePqcVerifyPrecompile.pqcVerify.selector), hex""
         );
     }
 }

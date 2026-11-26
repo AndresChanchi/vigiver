@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
 pragma solidity 0.8.39;
 
+import {IQorePqcVerifyPrecompile} from "./interfaces/IQorePqcVerifyPrecompile.sol";
+
 /// @title QorePqcVerifier
 /// @notice Verifies ML-DSA-87 signatures through QoreChain's native precompile.
 /// @dev This library validates signatures, not signing authority.
@@ -28,8 +30,6 @@ library QorePqcVerifier {
     uint256 internal constant SIGNATURE_LENGTH = 4627;
     uint256 internal constant RESPONSE_LENGTH = 32;
 
-    bytes4 internal constant VERIFY_SELECTOR = bytes4(keccak256("pqcVerify(bytes,bytes,bytes)"));
-
     /*//////////////////////////////////////////////////////////////
                             SIGNATURE VERIFICATION
     //////////////////////////////////////////////////////////////*/
@@ -51,7 +51,7 @@ library QorePqcVerifier {
         }
 
         bytes memory callData =
-            abi.encodeWithSelector(VERIFY_SELECTOR, publicKey, signature, message);
+            abi.encodeCall(IQorePqcVerifyPrecompile.pqcVerify, (publicKey, signature, message));
 
         (bool success, bytes memory response) = PQC_VERIFY_PRECOMPILE.staticcall(callData);
 
