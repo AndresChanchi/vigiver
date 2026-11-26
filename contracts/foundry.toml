@@ -1,0 +1,122 @@
+# Foundry configuration
+# https://getfoundry.sh/config/
+#
+# Soldeer documentation
+# https://github.com/mario-eth/soldeer/tree/v0.12.1
+
+[profile.default]
+
+# Project layout
+src = "src"
+test = "test"
+script = "script"
+out = "out"
+cache_path = "cache"
+libs = ["dependencies"]
+
+# Compiler and EVM compatibility
+solc_version = "0.8.39"
+auto_detect_solc = false
+evm_version = "prague"
+
+# Compilation
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+
+# Keep FFI disabled unless a reviewed test explicitly requires it.
+ffi = false
+
+# Deterministic dependency resolution
+auto_detect_remappings = false
+remappings = [
+    "forge-std/=dependencies/forge-std-1.17.0/src/"
+]
+
+# =============================================================================
+# Local development
+# =============================================================================
+
+[profile.default.fuzz]
+runs = 256
+
+[profile.default.invariant]
+runs = 128
+depth = 64
+
+# Unexpected handler reverts should fail the campaign.
+# Expected rejection paths must be modeled explicitly.
+fail_on_revert = true
+
+# =============================================================================
+# Continuous integration
+# =============================================================================
+
+[profile.ci.fuzz]
+runs = 2048
+
+[profile.ci.invariant]
+runs = 256
+depth = 128
+fail_on_revert = true
+
+# =============================================================================
+# Extended security testing
+# =============================================================================
+
+[profile.deep.fuzz]
+runs = 10000
+
+[profile.deep.invariant]
+runs = 1024
+depth = 256
+fail_on_revert = true
+
+# =============================================================================
+# Formatting
+# =============================================================================
+
+[fmt]
+line_length = 100
+tab_width = 4
+bracket_spacing = false
+int_types = "long"
+quote_style = "double"
+number_underscore = "thousands"
+
+# =============================================================================
+# Linting
+# =============================================================================
+
+[lint]
+exclude_lints = [
+    # Patrick Collins / Cyfrin conventions:
+    # i_ for immutable variables and s_ for mutable storage variables.
+    "mixed-case-variable",
+    "screaming-snake-case-immutable"
+]
+
+# =============================================================================
+# Dependencies
+# =============================================================================
+
+[dependencies]
+forge-std = { version = "1.17.0", git = "https://github.com/foundry-rs/forge-std.git", rev = "f3dae6e6ee381f25eb6a246f7da9b85c91a68219" }
+
+# =============================================================================
+# Soldeer
+# =============================================================================
+
+[soldeer]
+
+# Remappings are maintained explicitly in this file.
+remappings_generate = false
+recursive_deps = false
+
+# =============================================================================
+# Supported test networks
+# =============================================================================
+
+[rpc_endpoints]
+diana = "https://evm-testnet.qore.host"
+arbitrum_sepolia = "https://sepolia-rollup.arbitrum.io/rpc"
