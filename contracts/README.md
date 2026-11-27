@@ -26,7 +26,11 @@ Solidity 0.8.39 and the Prague EVM target have passed an initial local compilati
 |---|---|---|---|
 | forge-std | 1.17.0 | Development and testing | [Repository](https://github.com/foundry-rs/forge-std/tree/v1.17.0) |
 
-Forge Standard Library is the initial selected dependency, pending installation.
+Forge Standard Library is the selected development dependency.
+
+The resolved Git commit recorded in `soldeer.lock` is:
+
+`f3dae6e6ee381f25eb6a246f7da9b85c91a68219`
 
 No additional production libraries are currently selected.
 
@@ -80,7 +84,7 @@ Run the following commands from the repository root:
 cd contracts
 ```
 
-Once the Foundry configuration and dependency lockfile have been committed, restore dependencies:
+Restore the dependencies recorded in the committed configuration and lockfile:
 
 ```bash
 forge soldeer install
@@ -112,7 +116,12 @@ forge test
 
 The compiler version and EVM target are selected through `foundry.toml`. A separate system-wide Solidity compiler installation is not required.
 
-The development configuration, contracts, and test suite are introduced incrementally. Commands depending on those files become available when their corresponding implementation is committed.
+The Foundry configuration, dependency lockfile, development
+Makefile, PQC verification adapter and initial test suites
+are available.
+
+Additional capabilities and test categories are introduced
+incrementally.
 
 ## Dependency management
 
@@ -153,7 +162,12 @@ forge soldeer install 'forge-std~1.17.0' \
   --tag v1.17.0
 ```
 
-During the initial dependency configuration, the release tag will be resolved to its full Git commit and pinned.
+The repository already records the resolved dependency commit
+in `soldeer.lock`.
+
+Use the existing lockfile when restoring the project. The command
+above documents the original installation procedure rather than
+a required dependency update.
 
 Remove a dependency:
 
@@ -236,9 +250,65 @@ Directories are introduced as their corresponding capabilities are developed.
 
 Interfaces, libraries, and abstractions are located near the domain responsibilities they support.
 
+## Current implementation
+
+| Capability | Status |
+|---|---|
+| Native ML-DSA-87 verification adapter | Implemented |
+| Typed verification precompile interface | Implemented |
+| Public QoreSign verification fixtures | Available |
+| Verification unit tests | Available |
+| Verification fuzz tests | Available |
+| Registered-key validation | Planned |
+| Canonical authorization serialization | Planned |
+| Protected administrative controller | Planned |
+| Immutable contract registry | Specified |
+| Live application deployment | Pending |
+
+The existing `QorePqcVerifier` library establishes cryptographic
+signature validity.
+
+It does not independently establish signing authority,
+registered-key eligibility, replay protection or execution
+permission.
+
+See the [Authorization Specification](specifications/AUTHORIZATION.md)
+for the requirements of the next implementation stage.
+
 ## Development commands
 
-All commands below are intended to run from `contracts/` once the corresponding source files and configuration are available.
+All commands below are intended to run from `contracts/`.
+
+The Makefile provides the standard development workflow:
+
+```bash
+make help
+make versions
+make install
+make config
+make remappings
+make build
+make check
+make ci
+make deep
+make network-check
+```
+
+Use `make check` for local formatting, linting, compilation and
+available local tests.
+
+Use `make ci` for the CI testing profile.
+
+Use `make deep` for extended fuzz and invariant campaigns.
+
+Network-dependent tests are selected explicitly.
+
+The equivalent Foundry commands remain available for direct
+diagnosis and individual test execution.
+
+A test target may exist before its corresponding suite has been
+implemented. Executing an empty test category is not evidence
+that its security properties have been validated.
 
 ### Compilation and formatting
 
@@ -373,6 +443,24 @@ QoreChain-specific native precompiles and protocol authorization rules must not 
 
 Native behavior requires separate live testnet verification.
 
+### Diana simulation compatibility
+
+The tested Diana state-override execution path returned empty
+responses from native PQC precompiles.
+
+Direct calls without overrides and deployless creation calls
+without overrides successfully exercised the native verification
+boundary.
+
+Live verification harnesses must account for this observed
+difference.
+
+Anvil, mocked precompiles and generic fork execution must not be
+treated as equivalent to native protocol execution.
+
+See [Network Validation](evidence/NETWORK_VALIDATION.md) for the
+recorded observations.
+
 ### Contract interaction
 
 Inspect deployed bytecode:
@@ -490,6 +578,23 @@ Mocks and fixtures support local testing. They do not replace live verification 
 
 Local test commands must not broadcast transactions.
 
+Security-critical behavior is derived from component
+specifications and their required invariants.
+
+Property testing and stateful invariant testing do not constitute
+formal verification.
+
+Live integration must distinguish:
+
+- Read-only network observations.
+- Simulated contract execution.
+- Cryptographic verification.
+- Confirmed transactions.
+- Verified security postconditions.
+
+Deployment and protected state-changing transactions require
+an explicitly selected testnet account and user authorization.
+
 ## Development history
 
 Changes are recorded through focused [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
@@ -505,4 +610,16 @@ Private keys, recovery credentials, and sensitive environment files must never b
 - [System Architecture](../docs/ARCHITECTURE.md)
 - [Immutable Contract Registry ADR](../docs/adr/0001-immutable-contract-registry.md)
 
-Contract specifications, network evidence, deployment instructions, and security findings are added as their corresponding capabilities become available.
+- [Post-Quantum Authorization](specifications/AUTHORIZATION.md)
+- [Contract Registry Specification](specifications/REGISTRY.md)
+- [Network Validation](evidence/NETWORK_VALIDATION.md)
+
+Contract specifications define required behavior.
+
+Network evidence records observed behavior.
+
+Passing tests establish the tested implementation properties
+under their stated assumptions.
+
+These responsibilities must remain distinguishable throughout
+development.
