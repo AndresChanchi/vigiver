@@ -1,81 +1,183 @@
 # Roadmap
 
-Well... The project evolves through independently verifiable capabilities rather than fixed delivery dates.
+Vigiver evolves through independently verifiable capabilities.
 
-Each milestone should produce a meaningful result that can be inspected, tested, or demonstrated before additional complexity is introduced.
+The project prioritizes complete security workflows over isolated
+infrastructure components.
 
-## Phase 1 — Foundation
+Each milestone must produce a meaningful result that can be
+inspected, tested or demonstrated.
 
-- Define the system architecture and security boundaries.
-- Establish reproducible development environments.
-- Investigate blockchain capabilities and integration constraints.
-- Specify security-critical behavior before implementation.
+## Initial product milestone
 
-**Completion:** A reviewed architecture and testable specifications supported by infrastructure evidence.
+Deliver an end-to-end blockchain resilience workflow that
+investigates a security problem, identifies a feasible mitigation,
+protects its execution and verifies the outcome.
 
-## Phase 2 — Cryptographic protection
+The first scenario focuses on protecting transferable
+administrative authority against conventional-key compromise.
 
-- Integrate post-quantum verification on QoreChain.
-- Establish secure authorization and replay protection.
-- Verify scoped transaction authorization.
-- Test invalid signatures, expired permissions, compromised classical credentials, and unexpected network responses.
+QoreChain provides the initial post-quantum execution environment.
 
-**Completion:** A real sensitive operation protected by post-quantum authorization, with positive and adversarial test evidence.
+Concordium provides verifiable agent identity and proposal
+attribution.
 
-## Phase 3 — Contract evolution
+Arbitrum provides an external EVM investigation environment.
 
-- Introduce an immutable on-chain contract registry.
-- Register independent contract releases.
-- Define compatibility requirements and protected release selection.
-- Demonstrate security improvements through new deployments.
-- Establish explicit migration and recovery mechanisms where appropriate.
+These integrations form one application workflow.
 
-**Completion:** Contract versions can evolve transparently without replacing previously deployed bytecode or silently weakening authorization.
+## Phase 1 — Validated foundation
 
-## Phase 4 — Blockchain investigation
+- [x] Define the initial architecture and trust boundaries.
+- [x] Establish reproducible contract development workflows.
+- [x] Establish local unit and fuzz testing.
+- [x] Validate native ML-DSA-87 verification on Diana.
+- [x] Validate the Solidity verification adapter through simulation.
+- [x] Investigate registered PQC key status and proof of possession.
+- [x] Validate QoreX hybrid message-signing compatibility.
+- [x] Investigate browser connectivity and simulation constraints.
+- [x] Verify selected historical state proofs and validator signatures.
+- [ ] Preserve the principal research probes as reproducible scripts.
+- [ ] Resolve outstanding application authorization requirements.
 
-- Build a portable EVM investigation engine.
-- Inspect contract code, permissions, authorities, and available state.
-- Generate reproducible findings.
-- Simulate candidate mitigation strategies.
-- Identify situations where intervention is unavailable.
+The observed infrastructure capabilities and limitations are
+recorded in [Network Validation](../contracts/evidence/NETWORK_VALIDATION.md).
 
-**Completion:** An external EVM contract can be investigated, and its findings can be independently reproduced.
+Infrastructure research continues when it resolves a concrete
+implementation requirement.
 
-## Phase 5 — Verifiable security agent
+A complete consensus light client is not a prerequisite for
+the first product milestone.
 
-- Integrate verifiable agent identity through Concordium.
-- Connect the agent to investigation and simulation tools.
-- Attribute proposals to their originating agent instance.
-- Separate model reasoning from security-critical validation.
-- Require explicit authorization for sensitive actions.
+## Phase 2 — Protected authorization
 
-**Completion:** An identifiable agent produces an evidence-backed security proposal without possessing unrestricted execution authority.
+- [ ] Define canonical authorization messages.
+- [ ] Implement registered-key validation.
+- [ ] Implement operation-specific authorization.
+- [ ] Bind the authority, executor, controller and target.
+- [ ] Enforce nonces, expiry and policy epochs.
+- [ ] Enforce security-relevant state preconditions.
+- [ ] Implement cancellation and authority lifecycle rules.
+- [ ] Test malformed signatures and infrastructure responses.
+- [ ] Test replay, unauthorized execution and compromised executors.
+- [ ] Validate the required native EVM authorization windows.
+- [ ] Execute a protected administrative operation on Diana.
 
-## Phase 6 — Accessible application
+**Completion:** A real testnet operation succeeds only when the
+implemented application and native authorization requirements
+are satisfied.
 
-- Present security findings in understandable language.
-- Support read-only investigation without mandatory authentication.
-- Connect compatible wallets through capability-based interfaces.
-- Display proposed changes, uncertainties, and expected effects.
-- Provide transparent transaction and verification results.
+## Phase 3 — Investigation and agent attribution
 
-**Completion:** A user can investigate a contract, understand its risks, review a proposal, and verify an authorized action through the application.
+This phase can progress alongside authorization development.
 
-## Phase 7 — Security and release validation
+### Investigation
 
-- Perform layered testing and adversarial evaluation.
-- Run security assessments, including QCAI where applicable.
-- Resolve findings and establish regression coverage.
-- Publish deployment information and reproducible evidence.
-- Verify the integrated workflow independently.
+- [ ] Implement a portable EVM investigation capability.
+- [ ] Inspect contract bytecode, ownership and relevant permissions.
+- [ ] Identify supported authority-transfer mechanisms.
+- [ ] Produce structured, reproducible findings.
+- [ ] Identify unavailable or unsafe mitigation paths.
+- [ ] Demonstrate external read-only investigation on Arbitrum Sepolia.
 
-Security review begins with the first security-critical implementation and continues throughout development. It is not postponed until the final release.
+### Agent
 
-## Future exploration
+- [ ] Connect the agent to bounded investigation tools.
+- [ ] Support iterative tool selection and evidence evaluation.
+- [ ] Generate typed mitigation proposals.
+- [ ] Validate proposals through deterministic rules.
+- [ ] Prevent untrusted external content from overriding policy.
+- [ ] Register and verify an agent identity on Concordium testnet.
+- [ ] Establish verifiable proposal attribution.
 
-Additional directions include multi-chain investigation, cryptographic migration, delegated permissions, alternative inference providers, privacy-preserving evidence, active-session monitoring, persistent monitoring infrastructure, and more advanced verification techniques.
+**Completion:** An identifiable agent investigates a real target
+and prepares an evidence-backed proposal without unrestricted
+execution authority.
 
-Production deployments require separate security and operational readiness decisions.
+## Phase 4 — Integrated resilience workflow
 
-The roadmap may evolve as research exposes new risks, capabilities, or architectural constraints.
+- [ ] Present investigation findings in accessible language.
+- [ ] Support read-only use without mandatory authentication.
+- [ ] Connect a compatible user-controlled signing wallet.
+- [ ] Present the exact proposed operation and its expected effects.
+- [ ] Simulate the intervention where supported.
+- [ ] Request explicit operation-specific authorization.
+- [ ] Establish the protected controller as the target authority.
+- [ ] Execute an authorized administrative operation.
+- [ ] Verify the resulting security postconditions.
+- [ ] Demonstrate rejection of a classical-only authorization attempt.
+- [ ] Preserve evidence sufficient for independent reproduction.
+
+### Acceptance criteria
+
+The initial product milestone is complete when:
+
+1. A user provides a blockchain security objective.
+2. The agent investigates through real tools.
+3. Findings are supported by identifiable evidence.
+4. A technically feasible mitigation is identified.
+5. Relevant preconditions and expected effects are evaluated.
+6. The agent's Concordium identity and attribution are verified.
+7. A sensitive operation receives actual PQC protection on Diana.
+8. The user reviews and authorizes the operation.
+9. The resulting blockchain state is independently inspected.
+10. The workflow has reproducible positive and negative evidence.
+
+The demonstration must distinguish actual execution from
+simulation.
+
+An investigation without a feasible intervention must terminate
+with an explicit explanation.
+
+## Phase 5 — Security and release validation
+
+- [ ] Complete adversarial unit and fuzz testing.
+- [ ] Exercise stateful authorization invariants.
+- [ ] Validate real network integration.
+- [ ] Perform security assessments, including QCAI where applicable.
+- [ ] Resolve findings and add regression tests.
+- [ ] Publish reproducible deployment and verification evidence.
+
+Security review begins with the first security-critical
+implementation and continues throughout development.
+
+A passing test suite or automated audit does not establish
+unconditional security.
+
+## Phase 6 — Contract evolution
+
+- [ ] Introduce the immutable contract release registry.
+- [ ] Register independently deployed implementations.
+- [ ] Establish protected release selection.
+- [ ] Validate compatibility and lifecycle transitions.
+- [ ] Prevent unauthorized downgrades.
+- [ ] Establish explicit successor and migration mechanisms.
+- [ ] Demonstrate cryptographic agility through versioned releases.
+
+A minimal registry capability may be introduced earlier if required
+by the initial workflow.
+
+The complete release-management system is not a prerequisite for
+demonstrating one protected intervention.
+
+## Future capabilities
+
+Potential extensions include:
+
+- Additional classes of blockchain security investigation.
+- Vulnerability and dependency assessment.
+- Permission revocation and broader recovery operations.
+- Additional cryptographic verification mechanisms.
+- Multi-chain investigation.
+- Delegated and bounded autonomous execution.
+- Active-session and persistent monitoring.
+- Imported cryptographic evidence bundles.
+- Independently anchored light-client verification.
+- Privacy-preserving evidence and decentralized distribution.
+- Formal verification of selected security-critical components.
+
+These capabilities require separate specifications and acceptance
+criteria.
+
+Production deployment requires additional security and operational
+readiness decisions.

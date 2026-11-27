@@ -16,7 +16,18 @@ Understanding these risks often requires specialized knowledge of smart contract
 
 For most people, knowing that a risk exists is not enough. They also need to understand what it means, what they can do about it, and whether their proposed solution actually works.
 
-Vigiver is being built to make that process more accessible.
+Existing security tools often address individual stages of this
+process: auditing, simulation, monitoring, permission analysis,
+incident detection, or cryptographic verification.
+
+The difficult part is connecting their findings and determining
+what can actually be done.
+
+Vigiver addresses this gap between security findings and
+verifiable mitigation.
+
+It coordinates existing tools and introduces additional protection
+mechanisms where they provide concrete value.
 
 ## What is Vigiver?
 
@@ -59,6 +70,43 @@ When an authorized intervention is possible, the system can help simulate it, re
 
 When intervention is impossible, the system must explain that limitation instead of inventing a solution.
 
+## Initial use case
+
+The first end-to-end workflow focuses on protecting a smart
+contract's administrative authority against conventional-key
+compromise.
+
+```mermaid
+flowchart TD
+    A[User objective] --> B[Agent investigation]
+    B --> C[Evidence-backed diagnosis]
+    C --> D{Mitigation available?}
+    D -->|No| E[Explain limitations]
+    D -->|Yes| F[Prepare and validate proposal]
+    F --> G[Verify agent attribution]
+    G --> H[Request user authorization]
+    H --> I[Execute protected operation]
+    I --> J[Verify security postconditions]
+```
+
+The agent investigates administrative permissions and determines
+whether the target supports a legitimate authority transfer.
+
+When such a path exists, Vigiver can prepare a migration toward
+a controller that requires operation-specific post-quantum
+authorization for supported administrative actions.
+
+The initial demonstration targets controlled testnet contracts.
+External contracts can be investigated without assuming that they
+support the same mitigation.
+
+The initial transfer still requires the existing authority.
+Vigiver cannot guarantee recovery after that authority has already
+been compromised.
+
+Protection begins only when the new authority is established and
+alternative administrative bypasses have been excluded.
+
 ## Beyond post-quantum security
 
 Quantum computing introduces a significant long-term challenge to widely used public-key cryptographic systems.
@@ -81,7 +129,17 @@ Artificial intelligence can make blockchain security more accessible, but it sho
 
 Vigiver separates reasoning from verification.
 
-The agent can investigate, explain findings, suggest actions, and coordinate tools. Security-critical decisions must remain subject to deterministic validation, cryptographic verification, and explicit authorization.
+The agent can investigate, select tools, formulate hypotheses,
+perform additional checks, explain findings, and prepare mitigation
+proposals.
+
+Read-only investigations may proceed autonomously within their
+configured capabilities. Sensitive actions require explicit
+authorization or a deliberately implemented, limited delegation.
+
+Untrusted blockchain data, contract metadata, repository content
+and tool responses must not be treated as instructions that can
+override the agent's security policy. Security-critical decisions must remain subject to deterministic validation, cryptographic verification, and explicit authorization.
 
 An AI-generated statement is not proof.
 
@@ -149,7 +207,31 @@ Security is not the absence of change. It is the ability to respond safely when 
 
 Vigiver is currently in early development.
 
-The initial scope is restricted to test networks. Direct post-quantum verification and development-environment checks have been performed, but the application contracts, integrated agent, and complete user workflow are still under development.
+The initial scope is restricted to test networks.
+
+The project has established a reproducible local contract
+development environment and implemented an ML-DSA-87
+verification adapter.
+
+Experiments on QoreChain Diana have validated native verification,
+registered-key status, QoreX hybrid message signing, historical
+state proofs and selected consensus signatures.
+
+These results support the authorization architecture, but do not
+establish that the complete application is already implemented.
+
+The authorization controller, contract registry, integrated
+agent, Concordium attribution and end-to-end mitigation workflow
+remain under development.
+
+### Technical documentation
+
+- [System Architecture](docs/ARCHITECTURE.md)
+- [Roadmap](docs/ROADMAP.md)
+- [Contract Development](contracts/README.md)
+- [Authorization Specification](contracts/specifications/AUTHORIZATION.md)
+- [Contract Registry Specification](contracts/specifications/REGISTRY.md)
+- [Network Validation](contracts/evidence/NETWORK_VALIDATION.md)
 
 The project does not claim to guarantee the security or recoverability of arbitrary smart contracts.
 
