@@ -27,6 +27,9 @@ via_ir = false
 # Keep FFI disabled unless a reviewed test explicitly requires it.
 ffi = false
 
+# Read-only access to canonical authorization test fixtures.
+fs_permissions = [{ access = "read", path = "./test/fixtures/authorization" }]
+
 # Deterministic dependency resolution
 auto_detect_remappings = false
 remappings = [

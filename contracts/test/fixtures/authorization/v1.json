@@ -1,0 +1,144 @@
+{
+  "schema": "vigiver-authorization-v1",
+  "count": 6,
+  "vectors": [
+    {
+      "name": "zero_encoding_boundary",
+      "envelope": {
+        "chainId": "0",
+        "controller": "0x0000000000000000000000000000000000000000",
+        "authority": "0x0000000000000000000000000000000000000000",
+        "executor": "0x0000000000000000000000000000000000000000",
+        "target": "0x0000000000000000000000000000000000000000",
+        "action": "0",
+        "argument": "0",
+        "value": "0",
+        "expectedState": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "keyHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "policyEpoch": "0",
+        "nonce": "0",
+        "validAfter": "0",
+        "validBefore": "0",
+        "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "message": "vigiver-authorization-v1\nchainId=0\ncontroller=0x0000000000000000000000000000000000000000\nauthority=0x0000000000000000000000000000000000000000\nexecutor=0x0000000000000000000000000000000000000000\ntarget=0x0000000000000000000000000000000000000000\naction=0\nargument=0\nvalue=0\nexpectedState=0x0000000000000000000000000000000000000000000000000000000000000000\nkeyHash=0x0000000000000000000000000000000000000000000000000000000000000000\npolicyEpoch=0\nnonce=0\nvalidAfter=0\nvalidBefore=0\nevidenceHash=0x0000000000000000000000000000000000000000000000000000000000000000",
+      "framedMessage": "qorechain-msg-v1|qorechain-diana|vigiver-authorization-v1\nchainId=0\ncontroller=0x0000000000000000000000000000000000000000\nauthority=0x0000000000000000000000000000000000000000\nexecutor=0x0000000000000000000000000000000000000000\ntarget=0x0000000000000000000000000000000000000000\naction=0\nargument=0\nvalue=0\nexpectedState=0x0000000000000000000000000000000000000000000000000000000000000000\nkeyHash=0x0000000000000000000000000000000000000000000000000000000000000000\npolicyEpoch=0\nnonce=0\nvalidAfter=0\nvalidBefore=0\nevidenceHash=0x0000000000000000000000000000000000000000000000000000000000000000",
+      "authorizationId": "0x52a6f5e77b7aee47e5ab70a24e4bca196b6f705c0768bef9ca6f8b669388730e"
+    },
+    {
+      "name": "maximum_encoding_boundary",
+      "envelope": {
+        "chainId": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+        "controller": "0xffffffffffffffffffffffffffffffffffffffff",
+        "authority": "0xffffffffffffffffffffffffffffffffffffffff",
+        "executor": "0xffffffffffffffffffffffffffffffffffffffff",
+        "target": "0xffffffffffffffffffffffffffffffffffffffff",
+        "action": "255",
+        "argument": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+        "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+        "expectedState": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "keyHash": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "policyEpoch": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+        "nonce": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+        "validAfter": "18446744073709551615",
+        "validBefore": "18446744073709551615",
+        "evidenceHash": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      },
+      "message": "vigiver-authorization-v1\nchainId=115792089237316195423570985008687907853269984665640564039457584007913129639935\ncontroller=0xffffffffffffffffffffffffffffffffffffffff\nauthority=0xffffffffffffffffffffffffffffffffffffffff\nexecutor=0xffffffffffffffffffffffffffffffffffffffff\ntarget=0xffffffffffffffffffffffffffffffffffffffff\naction=255\nargument=115792089237316195423570985008687907853269984665640564039457584007913129639935\nvalue=115792089237316195423570985008687907853269984665640564039457584007913129639935\nexpectedState=0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\nkeyHash=0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\npolicyEpoch=115792089237316195423570985008687907853269984665640564039457584007913129639935\nnonce=115792089237316195423570985008687907853269984665640564039457584007913129639935\nvalidAfter=18446744073709551615\nvalidBefore=18446744073709551615\nevidenceHash=0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "framedMessage": "qorechain-msg-v1|qorechain-diana|vigiver-authorization-v1\nchainId=115792089237316195423570985008687907853269984665640564039457584007913129639935\ncontroller=0xffffffffffffffffffffffffffffffffffffffff\nauthority=0xffffffffffffffffffffffffffffffffffffffff\nexecutor=0xffffffffffffffffffffffffffffffffffffffff\ntarget=0xffffffffffffffffffffffffffffffffffffffff\naction=255\nargument=115792089237316195423570985008687907853269984665640564039457584007913129639935\nvalue=115792089237316195423570985008687907853269984665640564039457584007913129639935\nexpectedState=0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\nkeyHash=0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\npolicyEpoch=115792089237316195423570985008687907853269984665640564039457584007913129639935\nnonce=115792089237316195423570985008687907853269984665640564039457584007913129639935\nvalidAfter=18446744073709551615\nvalidBefore=18446744073709551615\nevidenceHash=0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "authorizationId": "0x61112aacf54536b6cb1091aa4f376885818b2b70c215dbd981bc58b9ff86729c"
+    },
+    {
+      "name": "set_parameter",
+      "envelope": {
+        "chainId": "9800",
+        "controller": "0x0000000000000000000000000000000000000011",
+        "authority": "0x11111111111111111111111111111111111111ab",
+        "executor": "0x2222222222222222222222222222222222222222",
+        "target": "0x3333333333333333333333333333333333333333",
+        "action": "1",
+        "argument": "200",
+        "value": "0",
+        "expectedState": "0x00ababababababababababababababababababababababababababababababab",
+        "keyHash": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+        "policyEpoch": "1",
+        "nonce": "12",
+        "validAfter": "1795824000",
+        "validBefore": "1795827600",
+        "evidenceHash": "0xefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef"
+      },
+      "message": "vigiver-authorization-v1\nchainId=9800\ncontroller=0x0000000000000000000000000000000000000011\nauthority=0x11111111111111111111111111111111111111ab\nexecutor=0x2222222222222222222222222222222222222222\ntarget=0x3333333333333333333333333333333333333333\naction=1\nargument=200\nvalue=0\nexpectedState=0x00ababababababababababababababababababababababababababababababab\nkeyHash=0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd\npolicyEpoch=1\nnonce=12\nvalidAfter=1795824000\nvalidBefore=1795827600\nevidenceHash=0xefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef",
+      "framedMessage": "qorechain-msg-v1|qorechain-diana|vigiver-authorization-v1\nchainId=9800\ncontroller=0x0000000000000000000000000000000000000011\nauthority=0x11111111111111111111111111111111111111ab\nexecutor=0x2222222222222222222222222222222222222222\ntarget=0x3333333333333333333333333333333333333333\naction=1\nargument=200\nvalue=0\nexpectedState=0x00ababababababababababababababababababababababababababababababab\nkeyHash=0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd\npolicyEpoch=1\nnonce=12\nvalidAfter=1795824000\nvalidBefore=1795827600\nevidenceHash=0xefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef",
+      "authorizationId": "0x596d3c09bbb64d2cad9a0228be11ed65607aa6c8566f6b0d28ea7ee7e122c646"
+    },
+    {
+      "name": "invalidate",
+      "envelope": {
+        "chainId": "9800",
+        "controller": "0x0000000000000000000000000000000000000011",
+        "authority": "0x11111111111111111111111111111111111111ab",
+        "executor": "0x2222222222222222222222222222222222222222",
+        "target": "0x0000000000000000000000000000000000000011",
+        "action": "2",
+        "argument": "0",
+        "value": "0",
+        "expectedState": "0x00ababababababababababababababababababababababababababababababab",
+        "keyHash": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+        "policyEpoch": "1",
+        "nonce": "12",
+        "validAfter": "1795824000",
+        "validBefore": "1795827600",
+        "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "message": "vigiver-authorization-v1\nchainId=9800\ncontroller=0x0000000000000000000000000000000000000011\nauthority=0x11111111111111111111111111111111111111ab\nexecutor=0x2222222222222222222222222222222222222222\ntarget=0x0000000000000000000000000000000000000011\naction=2\nargument=0\nvalue=0\nexpectedState=0x00ababababababababababababababababababababababababababababababab\nkeyHash=0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd\npolicyEpoch=1\nnonce=12\nvalidAfter=1795824000\nvalidBefore=1795827600\nevidenceHash=0x0000000000000000000000000000000000000000000000000000000000000000",
+      "framedMessage": "qorechain-msg-v1|qorechain-diana|vigiver-authorization-v1\nchainId=9800\ncontroller=0x0000000000000000000000000000000000000011\nauthority=0x11111111111111111111111111111111111111ab\nexecutor=0x2222222222222222222222222222222222222222\ntarget=0x0000000000000000000000000000000000000011\naction=2\nargument=0\nvalue=0\nexpectedState=0x00ababababababababababababababababababababababababababababababab\nkeyHash=0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd\npolicyEpoch=1\nnonce=12\nvalidAfter=1795824000\nvalidBefore=1795827600\nevidenceHash=0x0000000000000000000000000000000000000000000000000000000000000000",
+      "authorizationId": "0x0e5c631a6f3356c7b926303721e81d0650d1e46b7a023a77088ff7ecec8ea7ce"
+    },
+    {
+      "name": "sync_key",
+      "envelope": {
+        "chainId": "9800",
+        "controller": "0x0000000000000000000000000000000000000011",
+        "authority": "0x11111111111111111111111111111111111111ab",
+        "executor": "0x2222222222222222222222222222222222222222",
+        "target": "0x0000000000000000000000000000000000000011",
+        "action": "3",
+        "argument": "0",
+        "value": "0",
+        "expectedState": "0x00ababababababababababababababababababababababababababababababab",
+        "keyHash": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+        "policyEpoch": "1",
+        "nonce": "12",
+        "validAfter": "1795824000",
+        "validBefore": "1795827600",
+        "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "message": "vigiver-authorization-v1\nchainId=9800\ncontroller=0x0000000000000000000000000000000000000011\nauthority=0x11111111111111111111111111111111111111ab\nexecutor=0x2222222222222222222222222222222222222222\ntarget=0x0000000000000000000000000000000000000011\naction=3\nargument=0\nvalue=0\nexpectedState=0x00ababababababababababababababababababababababababababababababab\nkeyHash=0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd\npolicyEpoch=1\nnonce=12\nvalidAfter=1795824000\nvalidBefore=1795827600\nevidenceHash=0x0000000000000000000000000000000000000000000000000000000000000000",
+      "framedMessage": "qorechain-msg-v1|qorechain-diana|vigiver-authorization-v1\nchainId=9800\ncontroller=0x0000000000000000000000000000000000000011\nauthority=0x11111111111111111111111111111111111111ab\nexecutor=0x2222222222222222222222222222222222222222\ntarget=0x0000000000000000000000000000000000000011\naction=3\nargument=0\nvalue=0\nexpectedState=0x00ababababababababababababababababababababababababababababababab\nkeyHash=0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd\npolicyEpoch=1\nnonce=12\nvalidAfter=1795824000\nvalidBefore=1795827600\nevidenceHash=0x0000000000000000000000000000000000000000000000000000000000000000",
+      "authorizationId": "0xa80b588d91cdd7be2dd530e708ac6c8225ed9c23e65753c09298834fbef15e62"
+    },
+    {
+      "name": "revoke",
+      "envelope": {
+        "chainId": "9800",
+        "controller": "0x0000000000000000000000000000000000000011",
+        "authority": "0x11111111111111111111111111111111111111ab",
+        "executor": "0x2222222222222222222222222222222222222222",
+        "target": "0x0000000000000000000000000000000000000011",
+        "action": "4",
+        "argument": "0",
+        "value": "0",
+        "expectedState": "0x00ababababababababababababababababababababababababababababababab",
+        "keyHash": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+        "policyEpoch": "1",
+        "nonce": "12",
+        "validAfter": "1795824000",
+        "validBefore": "1795827600",
+        "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "message": "vigiver-authorization-v1\nchainId=9800\ncontroller=0x0000000000000000000000000000000000000011\nauthority=0x11111111111111111111111111111111111111ab\nexecutor=0x2222222222222222222222222222222222222222\ntarget=0x0000000000000000000000000000000000000011\naction=4\nargument=0\nvalue=0\nexpectedState=0x00ababababababababababababababababababababababababababababababab\nkeyHash=0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd\npolicyEpoch=1\nnonce=12\nvalidAfter=1795824000\nvalidBefore=1795827600\nevidenceHash=0x0000000000000000000000000000000000000000000000000000000000000000",
+      "framedMessage": "qorechain-msg-v1|qorechain-diana|vigiver-authorization-v1\nchainId=9800\ncontroller=0x0000000000000000000000000000000000000011\nauthority=0x11111111111111111111111111111111111111ab\nexecutor=0x2222222222222222222222222222222222222222\ntarget=0x0000000000000000000000000000000000000011\naction=4\nargument=0\nvalue=0\nexpectedState=0x00ababababababababababababababababababababababababababababababab\nkeyHash=0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd\npolicyEpoch=1\nnonce=12\nvalidAfter=1795824000\nvalidBefore=1795827600\nevidenceHash=0x0000000000000000000000000000000000000000000000000000000000000000",
+      "authorizationId": "0x6b9e8411a26883e9046af3df78b7a1132fef536d8b332deb4a038a00bcdfedf5"
+    }
+  ]
+}
